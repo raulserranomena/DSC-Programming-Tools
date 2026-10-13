@@ -1,5 +1,5 @@
 DSC Programming & Tools — Standalone Site
-Build v837 (GitHub-ready, default light theme, 1 column) | Based on standalone v833 / source v832
+Build v838 (GitHub-ready, responsive layout, default light theme, 1 column) | Based on standalone v833 / source v832
 
 INCLUDED
 - PowerSeries NEO: Installer Programming v1.51 New
@@ -82,3 +82,22 @@ BUILD v837: Light theme by default
 - The theme toggle still switches to dark or back to light, and subsequent
   manual choices persist across visits. No programming or tool code changed.
 - In GitHub Pages, replace index.html with v837 and hard-refresh.
+
+BUILD v838: Responsive workspace layout
+--------------------------------------
+- Added responsive.css, loaded after styles.css. This file is required.
+- Calculator panel model, report actions and settings now wrap without covering
+  the tool title; section summaries and power/current cards also reflow.
+- Workspace title/action headers expand vertically instead of cropping controls.
+- Section-search command bar and tool filters adapt to the available workspace.
+- Zone/wireless cards, multi-column programming layouts, and zone-expander
+  diagrams use responsive widths; wide data tables scroll within their cards.
+- Preserved the existing tool logic, programming data, and default light theme.
+
+TESTING
+- Chromium isolated component test at viewport widths 320-1440px: calculator
+  heading, model picker, buttons, settings and monitors had no bounding-box
+  overlap or horizontal escape at the tested widths. This is not a full site
+  end-to-end browser test (local site navigation is blocked here).
+- Test after GitHub Pages deployment by resizing the window with the sidebar
+  both expanded and collapsed, including the full programming documents.

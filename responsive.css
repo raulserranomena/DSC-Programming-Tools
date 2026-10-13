@@ -1,0 +1,396 @@
+/* v838 — responsive layout for the dedicated NEO / New PowerSeries site.
+   Preserve application functionality and the existing desktop design. Prefer
+   natural wrapping and content-sized layouts over clipping or shrinking text.
+   Tables retain horizontal scrolling when their columns cannot be made usable. */
+
+/* Flexible content must be allowed to shrink inside the resizable workspace. */
+html body .shell > .main,
+html body .main > .view.active,
+html body :is(.workspace-reference-view,.workspace-current-calculator-view,
+              .workspace-label-generator-view,.workspace-reporting-decoder-view,
+              .workspace-icon-led-esn-view,.workspace-table-view),
+html body :is(#referenceBody,#documentBody,.panel-current-calculator-host,
+              .label-entry-generator-host,.reporting-code-decoder-host),
+html body .view.active > .section-title > div,
+html body .view.active > .section-title .view-header-controls{
+  min-width:0;
+  max-width:100%;
+}
+
+/* All workspace headings are two flexible groups; neither may cover the other.
+   Keep the original sticky positioning: only intrinsic height changes. */
+html body .view.active > .section-title,
+html body #view-home.view.active > .workspace-home-heading,
+html body #view-section-home.view.active > .workspace-section-overview-heading,
+html body #view-reference.view.active > .reference-title-row,
+html body #view-document.view.active > .document-title-row{
+  display:flex!important;
+  flex-direction:row!important;
+  align-items:center!important;
+  flex-wrap:wrap!important;
+  column-gap:14px!important;
+  row-gap:10px!important;
+  height:auto!important;
+  min-height:62px!important;
+  max-height:none!important;
+  overflow:visible!important;
+}
+html body .view.active > .section-title > div:first-child,
+html body #view-reference.view.active > .reference-title-row > div:first-child,
+html body #view-document.view.active > .document-title-row > div:first-child{
+  flex:1 1 225px!important;
+  min-width:0!important;
+  width:auto!important;
+}
+html body .view.active > .section-title .view-header-controls,
+html body #view-reference.view.active > .reference-title-row .view-header-controls,
+html body #view-document.view.active > .document-title-row > .document-toolbar{
+  flex:1 1 auto!important;
+  width:auto!important;
+  max-width:100%!important;
+  min-width:0!important;
+  margin-left:auto!important;
+  flex-wrap:wrap!important;
+  justify-content:flex-end!important;
+  gap:7px!important;
+}
+html body .view.active > .section-title h1,
+html body #view-reference.view.active > .reference-title-row h1,
+html body #view-document.view.active > .document-title-row h1{
+  max-width:100%!important;
+  white-space:normal!important;
+  overflow-wrap:anywhere!important;
+  overflow:visible!important;
+  text-overflow:clip!important;
+}
+html body .view.active > .section-title .view-header-controls > *,
+html body #view-document.view.active > .document-title-row > .document-toolbar > *{
+  max-width:100%;
+}
+
+/* Right command/search bar uses its OWN width, not window width. */
+@container workspace-command-bar (max-width:850px){
+  html body .topbar.workspace-command-bar .workspace-right-navigation{
+    grid-template-columns:auto minmax(0,1fr)!important;
+    grid-template-rows:auto auto!important;
+    align-items:center!important;
+  }
+  html body .topbar.workspace-command-bar .workspace-navigation-buttons{
+    grid-column:1!important;grid-row:1!important;
+  }
+  html body .topbar.workspace-command-bar .workspace-breadcrumbs{
+    display:none!important;
+  }
+  html body .topbar.workspace-command-bar .workspace-section-search-v602{
+    grid-column:2!important;grid-row:1!important;
+    width:100%!important;min-width:0!important;max-width:none!important;
+  }
+}
+@container workspace-command-bar (max-width:490px){
+  html body .topbar.workspace-command-bar .workspace-right-navigation{
+    grid-template-columns:minmax(0,1fr)!important;
+    grid-template-rows:auto auto!important;
+  }
+  html body .topbar.workspace-command-bar .workspace-navigation-buttons{
+    grid-column:1!important;grid-row:1!important;
+    min-width:0!important;max-width:100%!important;
+  }
+  html body .topbar.workspace-command-bar .workspace-section-search-v602{
+    grid-column:1!important;grid-row:2!important;
+    min-width:0!important;
+  }
+}
+
+/* Panel Current Calculator: eliminate the source of the screenshot overlap.
+   The old v402 rule forced the panel picker + five actions + gear to remain on
+   one line regardless of available width. The controls now flow as groups. */
+html body #view-current-calculator.view.active > .current-calculator-heading{
+  align-items:center!important;
+  height:auto!important;
+  min-height:66px!important;
+  max-height:none!important;
+  padding-block:11px!important;
+  row-gap:9px!important;
+}
+html body #view-current-calculator.view.active > .current-calculator-heading > div:first-child{
+  flex:1 1 240px!important;
+}
+html body #view-current-calculator.view.active #panelCurrentCalculatorHeaderControls{
+  flex:0 1 675px!important;
+  width:auto!important;
+  max-width:100%!important;
+  min-width:min(100%,675px)!important;
+  display:flex!important;
+  flex-wrap:wrap!important;
+  align-items:center!important;
+  justify-content:flex-start!important;
+  gap:7px!important;
+  margin-left:auto!important;
+}
+html body #panelCurrentCalculatorHeaderControls .pcc2-header-panel-model{
+  order:1!important;
+  flex:0 1 290px!important;
+  width:auto!important;
+  min-width:min(100%,220px)!important;
+  max-width:100%!important;
+  grid-template-columns:max-content minmax(0,1fr)!important;
+}
+html body #panelCurrentCalculatorHeaderControls .pcc2-header-panel-model select{
+  min-width:0!important;
+}
+html body #panelCurrentCalculatorHeaderControls .pcc2-toolbar{
+  order:2!important;
+  flex:0 1 auto!important;
+  width:auto!important;
+  min-width:0!important;
+  max-width:100%!important;
+  display:flex!important;
+  flex-wrap:wrap!important;
+  justify-content:flex-end!important;
+  gap:6px!important;
+  overflow:visible!important;
+}
+html body #panelCurrentCalculatorHeaderControls .pcc2-header-settings-wrap{
+  order:3!important;
+  flex:0 0 auto!important;
+}
+
+/* Calculator main panel, circuit headers, and status panels reflow based on
+   their own available space, including when the user widens the side menu. */
+html body .panel-current-calculator-host .pcc2-system-banner,
+html body .panel-current-calculator-host .pcc2-section-head{
+  min-width:0!important;
+  max-width:100%!important;
+}
+html body .panel-current-calculator-host .pcc2-system-banner{
+  display:flex!important;
+  flex-wrap:wrap!important;
+  align-items:center!important;
+  gap:10px!important;
+}
+html body .panel-current-calculator-host .pcc2-system-banner > .pcc2-section-heading-main{
+  flex:1 1 260px!important;
+  min-width:0!important;
+}
+html body .panel-current-calculator-host .pcc2-system-banner > .pcc2-system-banner-side{
+  flex:1 1 350px!important;
+  min-width:0!important;
+  width:auto!important;
+  max-width:100%!important;
+  margin-left:auto!important;
+  display:flex!important;
+  flex-wrap:wrap!important;
+  justify-content:flex-end!important;
+  gap:9px!important;
+}
+html body .panel-current-calculator-host .pcc2-system-monitors{
+  display:grid!important;
+  grid-template-columns:repeat(auto-fit,minmax(min(100%,165px),1fr))!important;
+  flex:1 1 330px!important;
+  min-width:0!important;
+  max-width:100%!important;
+  width:auto!important;
+}
+html body .panel-current-calculator-host .pcc2-system-monitor{
+  min-width:0!important;
+  max-width:100%!important;
+}
+html body .panel-current-calculator-host .pcc2-section-head{
+  display:flex!important;
+  flex-wrap:wrap!important;
+  align-items:center!important;
+  gap:9px!important;
+}
+html body .panel-current-calculator-host .pcc2-section-head > .pcc2-section-heading-main{
+  flex:1 1 225px!important;
+  min-width:0!important;
+}
+html body .panel-current-calculator-host .pcc2-section-head > .pcc2-section-side,
+html body .panel-current-calculator-host .pcc2-section-header-meta{
+  flex:1 1 340px!important;
+  display:flex!important;
+  flex-wrap:wrap!important;
+  width:auto!important;
+  min-width:0!important;
+  max-width:100%!important;
+  justify-content:flex-end!important;
+}
+html body .panel-current-calculator-host .pcc2-section-title-line,
+html body .panel-current-calculator-host .pcc2-section-header-meta > .pcc2-terminal-strip{
+  min-width:0!important;
+  max-width:100%!important;
+  flex-wrap:wrap!important;
+}
+html body .panel-current-calculator-host .pcc2-tools-navigation-shell,
+html body .panel-current-calculator-host .pcc2-tools-drawers{
+  min-width:0!important;
+  max-width:100%!important;
+}
+/* A narrow panel may scroll large data tables, never the whole page. */
+html body .pcc2-table-wrap,
+html body .table-scroll,
+html body .dsc-table-scroll-wrap{
+  max-width:100%!important;
+  min-width:0!important;
+  overflow-x:auto!important;
+  overscroll-behavior-x:contain;
+}
+
+/* Common filter/action surfaces across Zone Types, Wireless, Reporting, and
+   programming: allow control groups to flow when the workspace shrinks. */
+html body #referenceBody :is(.zone-types-filter-panel,.wireless-filter-panel,
+           .reporting-filter-panel,.reporting-filter-toolbar),
+html body .reporting-code-decoder-host :is(.reporting-decoder-search-toolbar,
+           .reporting-decoder-actions),
+html body .label-entry-generator-host :is(.label-generator-toolbar,
+           .label-entry-toolbar){
+  min-width:0!important;
+  max-width:100%!important;
+}
+html body #referenceBody:is([data-reference-id="neo-zone-types"],
+  [data-reference-id="new-powerseries-zone-types"],[data-reference-id="neo-wireless-tools"])
+  .zone-types-filter-panel .reporting-filter-toolbar{
+  flex-wrap:wrap!important;
+  align-items:center!important;
+}
+html body #referenceBody:is([data-reference-id="neo-zone-types"],
+  [data-reference-id="new-powerseries-zone-types"]) .zone-types-filter-panel
+  .zone-types-filter-list,
+html body #referenceBody[data-reference-id="neo-wireless-tools"]
+  .wireless-filter-panel .wireless-filter-field-list{
+  flex:1 1 450px!important;
+  width:auto!important;
+  min-width:0!important;
+  max-width:100%!important;
+  flex-wrap:wrap!important;
+  white-space:normal!important;
+  overflow:visible!important;
+}
+html body #referenceBody[data-reference-id="neo-wireless-tools"]
+  .wireless-filter-panel .wireless-active-filters-toggle{
+  margin-left:auto!important;
+}
+
+/* Small screen adjustments: no disappearing report buttons or status cards. */
+@media(max-width:760px){
+  html body .view.active > .section-title,
+  html body #view-reference.view.active > .reference-title-row,
+  html body #view-document.view.active > .document-title-row{
+    flex-direction:column!important;
+    align-items:stretch!important;
+  }
+  html body .view.active > .section-title > div:first-child,
+  html body #view-reference.view.active > .reference-title-row > div:first-child,
+  html body #view-document.view.active > .document-title-row > div:first-child{
+    flex:0 0 auto!important;
+    width:100%!important;
+    max-width:100%!important;
+  }
+  html body .view.active > .section-title .view-header-controls,
+  html body #view-document.view.active > .document-title-row > .document-toolbar{
+    width:100%!important;
+    flex:0 0 auto!important;
+    justify-content:flex-start!important;
+    margin-left:0!important;
+  }
+  html body #view-current-calculator.view.active #panelCurrentCalculatorHeaderControls{
+    flex:0 0 auto!important;
+    min-width:0!important;
+    width:100%!important;
+    justify-content:flex-start!important;
+    margin-left:0!important;
+  }
+  html body #panelCurrentCalculatorHeaderControls .pcc2-toolbar{
+    justify-content:flex-start!important;
+  }
+  html body .panel-current-calculator-host .pcc2-system-banner > .pcc2-system-banner-side,
+  html body .panel-current-calculator-host .pcc2-section-head > .pcc2-section-side{
+    justify-content:flex-start!important;
+  }
+  html body .panel-current-calculator-host .pcc2-tools-drawers{
+    flex-wrap:wrap!important;
+    overflow-x:visible!important;
+  }
+}
+@media(max-width:420px){
+  html body .view.active > .section-title h1{
+    font-size:clamp(19px,6vw,26px)!important;
+  }
+  html body #panelCurrentCalculatorHeaderControls .pcc2-header-panel-model{
+    flex:1 1 100%!important;
+  }
+  html body #panelCurrentCalculatorHeaderControls .pcc2-toolbar{
+    flex:1 1 100%!important;
+  }
+  html body #panelCurrentCalculatorHeaderControls .pcc2-header-settings-wrap{
+    margin-right:auto;
+  }
+  html body .panel-current-calculator-host .pcc2-system-monitors{
+    grid-template-columns:minmax(0,1fr)!important;
+  }
+}
+
+/* The calculator-specific flex basis must not become a vertical height when
+   legacy mobile CSS switches the title header to column direction. */
+@media(max-width:760px){
+  html body #view-current-calculator.view.active > .current-calculator-heading > div:first-child{
+    flex:0 0 auto!important;
+    width:100%!important;
+    min-height:0!important;
+  }
+}
+
+/* Multiple programming columns remain a user choice, but collapse naturally
+   when their actual panel width cannot support legible cards. */
+html body #documentBody .document-multi-columns{
+  grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr))!important;
+}
+
+/* Scope tool-card breakpoints to the space beside the navigation sidebar. */
+html body #referenceBody:is([data-reference-id="neo-zone-types"],
+  [data-reference-id="new-powerseries-zone-types"],
+  [data-reference-id="neo-wireless-tools"]){
+  container-name:dsc-reference-tools;
+  container-type:inline-size;
+}
+@container dsc-reference-tools (max-width:980px){
+  html body #referenceBody:is([data-reference-id="neo-zone-types"],
+    [data-reference-id="new-powerseries-zone-types"])
+    .zone-types-results:is(.document-columns-3,.document-columns-4),
+  html body #referenceBody[data-reference-id="neo-wireless-tools"]
+    .wireless-device-results:is(.document-columns-3,.document-columns-4){
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  }
+}
+@container dsc-reference-tools (max-width:640px){
+  html body #referenceBody:is([data-reference-id="neo-zone-types"],
+    [data-reference-id="new-powerseries-zone-types"])
+    .zone-types-results:is(.document-columns-2,.document-columns-3,.document-columns-4),
+  html body #referenceBody[data-reference-id="neo-wireless-tools"]
+    .wireless-device-results:is(.document-columns-2,.document-columns-3,.document-columns-4){
+    grid-template-columns:minmax(0,1fr)!important;
+  }
+  html body #referenceBody:is([data-reference-id="neo-zone-types"],
+    [data-reference-id="new-powerseries-zone-types"])
+    .zone-types-results .zone-types-alarm-group-grid{
+    grid-template-columns:minmax(0,1fr)!important;
+  }
+}
+
+/* New PowerSeries zone-expander diagrams / mapping cards use the available
+   workspace width, not the overall browser breakpoint. */
+html body #view-zone-expanders-tools .ze-simple-layout{
+  grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr))!important;
+}
+html body #view-zone-expanders-tools .ze-group-tables{
+  grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr))!important;
+}
+html body #view-zone-expanders-tools .ze-version-switch,
+html body #view-zone-expanders-tools .ze-bank-switch{
+  max-width:100%!important;
+  flex-wrap:wrap!important;
+}
+html body #view-zone-expanders-tools .ze-table-card{
+  overflow-x:auto!important;
+  overscroll-behavior-x:contain;
+}
