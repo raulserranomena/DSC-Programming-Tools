@@ -394,3 +394,85 @@ html body #view-zone-expanders-tools .ze-table-card{
   overflow-x:auto!important;
   overscroll-behavior-x:contain;
 }
+
+/* v839 — keep each page's title/action header as a compact single row when
+   its actual workspace width allows. Legacy ID-specific rules assigned the
+   title and controls width:100%, making every overview header double-height,
+   even on wide desktops. Reset those constraints without changing tool cards. */
+html body .view.active > .section-title,
+html body #view-home.view.active > .workspace-home-heading,
+html body #view-section-home.view.active > .workspace-section-overview-heading,
+html body #view-reference.view.active > .reference-title-row,
+html body #view-document.view.active > .document-title-row {
+  display:flex!important;
+  flex-direction:row!important;
+  align-items:center!important;
+  align-content:center!important;
+  justify-content:space-between!important;
+  flex-wrap:wrap!important;
+  gap:6px 12px!important;
+  height:auto!important;
+  min-height:58px!important;
+  max-height:none!important;
+  padding:7px 14px!important;
+  overflow:visible!important;
+}
+html body .view.active > .section-title > div:first-child,
+html body #view-home.view.active > .workspace-home-heading > div:first-child,
+html body #view-section-home.view.active > .workspace-section-overview-heading > div:first-child,
+html body #view-reference.view.active > .reference-title-row > div:first-child,
+html body #view-document.view.active > .document-title-row > div:first-child {
+  flex:1 1 max-content!important;
+  width:auto!important;
+  min-width:min(100%,230px)!important;
+  max-width:100%!important;
+  align-self:center!important;
+}
+html body #view-document.view.active > .document-title-row > div:first-child {
+  min-width:min(100%,370px)!important;
+}
+html body .view.active > .section-title .view-header-controls,
+html body #workspaceHomeControls,
+html body #sectionHomeControls,
+html body #referenceHeaderControls,
+html body #view-document.view.active > .document-title-row > .document-toolbar {
+  display:flex!important;
+  flex:0 1 auto!important;
+  width:auto!important;
+  min-width:0!important;
+  max-width:100%!important;
+  margin-left:auto!important;
+  justify-content:flex-end!important;
+  align-items:center!important;
+  align-self:center!important;
+  flex-wrap:wrap!important;
+  gap:6px!important;
+}
+/* The optional column/count controls retain their own natural dimensions. */
+html body :is(#workspaceHomeControls,#sectionHomeControls,#referenceHeaderControls) > .workspace-menu-toolbar {
+  width:auto!important;
+  max-width:100%!important;
+  flex-wrap:wrap!important;
+}
+/* The responsive calculator heading still needs its distinct flexible toolbar;
+   preserve the v838 calculator grouping at every width. */
+html body #view-current-calculator.view.active > .current-calculator-heading > div:first-child {
+  flex:1 1 240px!important;
+}
+html body #view-current-calculator.view.active #panelCurrentCalculatorHeaderControls {
+  flex:0 1 675px!important;
+  min-width:min(100%,675px)!important;
+  justify-content:flex-start!important;
+}
+@media(max-width:760px){
+  html body #view-current-calculator.view.active > .current-calculator-heading > div:first-child {
+    flex:0 0 auto!important;
+    width:100%!important;
+  }
+  html body #view-current-calculator.view.active #panelCurrentCalculatorHeaderControls {
+    flex:0 0 auto!important;
+    min-width:0!important;
+    width:100%!important;
+    margin-left:0!important;
+  }
+}
