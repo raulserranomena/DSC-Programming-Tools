@@ -344,9 +344,43 @@ if(read('dsc-tools-single-column-default-v807',false)!==true){
 }
 var neoReportingCidQualifierDisplay=read('dsc-neo-reporting-cid-qualifier-v1','er'); if(neoReportingCidQualifierDisplay!=='13') neoReportingCidQualifierDisplay='er';
 if(read('dsc-programming-columns-default-v216',false)!==true){
-  documentLayoutModes['programming-document']='2';
+  documentLayoutModes['programming-document']='1';
   save('dsc-document-layout-v1',documentLayoutModes);
   save('dsc-programming-columns-default-v216',true);
+}
+/* v836: One-time upgrade to single-column layouts across this standalone site.
+   This also corrects v835's stored 2-column programming default on browsers
+   that have already opened the old build. The visitor can select 2–4 columns
+   again afterward; those later choices are saved normally. Never alter table
+   data columns, filters, or unrelated saved tool preferences. */
+if(read('dsc-standalone-single-column-v836',false)!==true){
+  Object.keys(documentLayoutModes).forEach(function(scope){
+    documentLayoutModes[scope]='1';
+  });
+  documentLayoutModes['programming-document']='1';
+  documentLayoutModes['neo-zone-types']='1';
+  save('dsc-document-layout-v1',documentLayoutModes);
+  [
+    'dsc-zone-types-list-columns-v1',
+    'dsc-zone-types-group-columns-v2',
+    'dsc-wireless-tools-list-columns-v1',
+    'dsc-wireless-tools-group-columns-v2'
+  ].forEach(function(key){save(key,1);});
+  var previousMenuColumns=read('dsc-workspace-menu-columns-v1',{});
+  if(!previousMenuColumns||typeof previousMenuColumns!=='object'||Array.isArray(previousMenuColumns)) previousMenuColumns={};
+  Object.keys(previousMenuColumns).forEach(function(scope){previousMenuColumns[scope]='1';});
+  save('dsc-workspace-menu-columns-v1',previousMenuColumns);
+  [
+    'dsc-neo-reporting-code-decoder-v17',
+    'dsc-new-powerseries-reporting-code-decoder-v1'
+  ].forEach(function(key){
+    var oldState=read(key,null);
+    if(oldState&&typeof oldState==='object'&&!Array.isArray(oldState)){
+      oldState.reportingTypeColumns=1;
+      save(key,oldState);
+    }
+  });
+  save('dsc-standalone-single-column-v836',true);
 }
 function $(id){ return document.getElementById(id); }
 function qsa(sel, root){ return Array.prototype.slice.call((root || document).querySelectorAll(sel)); }
@@ -9818,7 +9852,7 @@ function documentLayoutPreference(scope){
   if(raw==='one') return 1;
   var value=Math.round(Number(raw));
   if(value>=1&&value<=4) return value;
-  if(scope==='programming-document') return 2;
+  if(scope==='programming-document') return 1;
   if(scope==='neo-zone-types') return 1;
   return 1;
 }
@@ -11311,8 +11345,8 @@ function workspaceOverviewBreadcrumb(control){
 var workspaceMenuColumns={};
 try{workspaceMenuColumns=read('dsc-workspace-menu-columns-v1',{})||{};}catch(err){workspaceMenuColumns={};}
 function workspaceMenuColumnPreference(scope){
-  var value=Math.round(Number(workspaceMenuColumns[scope]||2));
-  return value>=1&&value<=4?value:2;
+  var value=Math.round(Number(workspaceMenuColumns[scope]||1));
+  return value>=1&&value<=4?value:1;
 }
 function workspaceMenuLayoutControl(scope,count){
   var columns=workspaceMenuColumnPreference(scope);
@@ -20447,7 +20481,7 @@ function bind(){
     programmingShowCp01Defaults=true;
     programmingLocalSearchLive=true;
     programmingLocalSearchResultsOnly=true;
-    documentLayoutModes['programming-document']='2';
+    documentLayoutModes['programming-document']='1';
     save('dsc-programming-hide-unused-v118',programmingHideUnused);
     save('dsc-programming-show-stnd-defaults-v638',programmingShowStndDefaults);
     save('dsc-programming-show-cp01-defaults-v638',programmingShowCp01Defaults);

@@ -1,19 +1,36 @@
 <!DOCTYPE html>
 
-<html data-theme="dark" lang="en">
+<html data-theme="light" lang="en">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <title>DSC Programming &amp; Tools — NEO + New PowerSeries</title>
-<script>document.documentElement.classList.add('js','workspace-initializing');</script>
-<link href="./styles.css?v=835" rel="stylesheet"/>
+<script>
+(function(){
+  document.documentElement.classList.add('js','workspace-initializing');
+  // v837: start in light mode once after upgrading, including browsers that
+  // previously saved the former dark default. Subsequent manual choices persist.
+  try {
+    var themeKey='dsc-theme-v1';
+    var migrationKey='dsc-theme-light-default-v837';
+    var theme=localStorage.getItem(themeKey);
+    if(localStorage.getItem(migrationKey)!=='1') {
+      localStorage.setItem(themeKey,'light');
+      localStorage.setItem(migrationKey,'1');
+      theme='light';
+    }
+    if(theme==='light'||theme==='dark') document.documentElement.setAttribute('data-theme',theme);
+  } catch(err) { /* Storage unavailable: the HTML default is light. */ }
+})();
+</script>
+<link href="./styles.css?v=836" rel="stylesheet"/>
 <link href="./powerseries-zone-expanders-tools.css?v=827" rel="stylesheet"/>
 <script defer="" src="./data/dsc-data.js?v=835"></script><script defer="" src="./data/neo-programming-sections-1.js?v=835"></script><script defer="" src="./data/neo-programming-sections-2.js?v=835"></script><script defer="" src="./data/neo-programming-relationships.js?v=835"></script>
 <script defer="" src="./simulator/neo-panel-simulator.js"></script>
 <script defer="" src="./data/neo-reference-data.js?v=574"></script>
 <script defer="" src="./data/powerseries-reference-data.js?v=574"></script>
 <script defer="" src="./data/neo-wireless-tools-data.js?v=802"></script>
-<script defer="" src="./app.js?v=835"></script>
+<script defer="" src="./app.js?v=836"></script>
 <script defer="" src="./powerseries-zone-expanders-tools.js?v=827"></script>
 <script defer="" src="./label-entry-generator.js?v=559"></script>
 <script defer="" src="./powerseries-label-entry-generator.js?v=559"></script>
@@ -174,8 +191,8 @@
 <div class="programming-settings-layout" data-document-layout-menu="programming-document" id="programmingLayoutToggle">
 <span>Columns</span>
 <div aria-label="Number of programming columns" class="reporting-table-toggle-strip programming-column-toggle" role="group">
-<button aria-checked="false" data-document-layout-choice="1" role="menuitemradio" type="button">1</button>
-<button aria-checked="true" class="active" data-document-layout-choice="2" role="menuitemradio" type="button">2</button>
+<button aria-checked="true" class="active" data-document-layout-choice="1" role="menuitemradio" type="button">1</button>
+<button aria-checked="false" data-document-layout-choice="2" role="menuitemradio" type="button">2</button>
 <button aria-checked="false" data-document-layout-choice="3" role="menuitemradio" type="button">3</button>
 <button aria-checked="false" data-document-layout-choice="4" role="menuitemradio" type="button">4</button>
 </div>

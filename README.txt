@@ -1,5 +1,5 @@
 DSC Programming & Tools — Standalone Site
-Build v835 (GitHub-ready) | Based on standalone v833 / source v832
+Build v837 (GitHub-ready, default light theme, 1 column) | Based on standalone v833 / source v832
 
 INCLUDED
 - PowerSeries NEO: Installer Programming v1.51 New
@@ -60,3 +60,25 @@ GITHUB PAGES DEPLOYMENT
 
 NOTE: GitHub Pages site publishing from a branch may take a few minutes.
 Source: https://docs.github.com/en/repositories/working-with-files/managing-files/adding-a-file-to-a-repository
+
+BUILD v836: One-column default across all adjustable layouts
+---------------------------------------------------------
+- NEO 1.51 New programming and New PowerSeries 4.62 New programming: 1 column
+  on first use and after programming Settings -> Reset.
+- Zone Type Tools and Wireless Tools: list and grouped card layouts: 1 column.
+- Workspace subsection/home menus: 1 column.
+- Reporting Codes Tools: reporting-type card layouts: 1 column.
+- On the first visit after upgrading to v836, old saved column counts are
+  migrated to 1 once. All other saved preferences and data are left intact.
+- Choosing another column count later works and is saved normally.
+- Tables continue to display their full data columns; only the number of
+  layout columns for cards/sections is changed.
+
+BUILD v837: Light theme by default
+---------------------------------
+- New visits start in the light theme, instead of dark.
+- The first visit after upgrading to v837 changes a previously saved dark
+  theme to light once, so existing site users see the new requested default.
+- The theme toggle still switches to dark or back to light, and subsequent
+  manual choices persist across visits. No programming or tool code changed.
+- In GitHub Pages, replace index.html with v837 and hard-refresh.
