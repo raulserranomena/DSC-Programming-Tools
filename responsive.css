@@ -476,3 +476,124 @@ html body #view-current-calculator.view.active #panelCurrentCalculatorHeaderCont
     margin-left:0!important;
   }
 }
+
+/* v840 — responsive table headers site-wide.
+   The shared filterable header must never hide its text simply because the
+   filter icon cannot share a narrow column. It can wrap into a second row.
+   Preserve each table's specialized column widths, sticky headers and filters. */
+html body table.dsc-unified-table .dsc-table-filterable-heading {
+  display:flex!important;
+  flex-flow:row wrap!important;
+  justify-content:flex-start!important;
+  align-content:center!important;
+  align-items:center!important;
+  gap:3px 5px!important;
+  overflow:visible!important;
+  min-width:0!important;
+  max-width:100%!important;
+  height:auto!important;
+}
+html body table.dsc-unified-table .dsc-table-heading-label {
+  display:block!important;
+  flex:1 1 auto!important;
+  min-width:min-content!important;
+  max-width:100%!important;
+  overflow:visible!important;
+  text-overflow:clip!important;
+  white-space:normal!important;
+  overflow-wrap:break-word!important;
+  word-break:normal!important;
+  hyphens:manual!important;
+}
+html body table.dsc-unified-table .dsc-table-column-filter-button {
+  flex:0 0 18px!important;
+  grid-column:auto!important;
+  justify-self:auto!important;
+  margin:0 0 0 auto!important;
+  position:static!important;
+  inset:auto!important;
+  width:18px!important;
+  min-width:18px!important;
+  max-width:18px!important;
+  height:20px!important;
+  min-height:20px!important;
+  max-height:20px!important;
+}
+/* Prefer intact words in every data table; if a genuinely long token cannot
+   fit it may still break as a last resort instead of overlaying another cell. */
+html body table.dsc-unified-table :is(th,td) {
+  overflow-wrap:break-word!important;
+  word-break:normal!important;
+}
+
+/* The keypad lookup is a collection of tables, NOT one fixed 4-column grid.
+   Fit as many adequately wide cards as the actual content pane can hold,
+   including when the sidebar is resized but the viewport is still wide. */
+html body .keypad-entry-grid {
+  grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr))!important;
+  min-width:0!important;
+}
+html body .keypad-entry-grid .keypad-entry-group {
+  min-width:0!important;
+  overflow-x:auto!important;
+  overflow-y:hidden;
+  overscroll-behavior-x:contain;
+}
+html body .keypad-entry-grid .keypad-entry-mini-table {
+  table-layout:auto!important;
+  min-width:290px!important;
+  width:100%!important;
+}
+html body .keypad-entry-grid .keypad-entry-mini-table :is(th,td){
+  width:auto!important;
+  min-width:45px!important;
+  overflow-wrap:normal!important;
+  word-break:normal!important;
+  white-space:normal!important;
+}
+html body .keypad-entry-grid .keypad-entry-mini-table :is(th,td):first-child{
+  min-width:57px!important;
+}
+html body .keypad-entry-grid .keypad-entry-mini-table .dsc-table-filterable-heading{
+  justify-content:center!important;
+  gap:1px 3px!important;
+}
+html body .keypad-entry-grid .keypad-entry-mini-table .dsc-table-heading-label{
+  flex:0 1 auto!important;
+  white-space:nowrap!important;
+  overflow-wrap:normal!important;
+  text-align:center!important;
+}
+html body .keypad-entry-grid .keypad-entry-mini-table .dsc-table-column-filter-button{
+  margin:0!important;
+}
+/* Key-cell descriptions such as "Escape / Back" may wrap at spaces, never
+   within "Escape" or "Select". The scrollbar remains inside a card. */
+html body .keypad-entry-grid .keypad-entry-mini-table tbody td{
+  overflow-wrap:normal!important;
+  word-break:normal!important;
+}
+
+
+
+/* Code is a deliberately narrow identity column in the two new installer
+   Zone Type Lists. Put its filter below its heading if it cannot sit beside
+   it; do not increase the full table's width or alter the other columns. */
+#documentBody#documentBody:is([data-programming-entry="neo-installer-programming-new"], [data-programming-entry="ps462-installer-programming-new"])
+  .program-zone-type-table.dsc-unified-table thead th:first-child .dsc-table-filterable-heading {
+  display:flex!important;
+  flex-direction:column!important;
+  flex-wrap:nowrap!important;
+  gap:2px!important;
+  align-items:center!important;
+}
+#documentBody#documentBody:is([data-programming-entry="neo-installer-programming-new"], [data-programming-entry="ps462-installer-programming-new"])
+  .program-zone-type-table.dsc-unified-table thead th:first-child .dsc-table-heading-label {
+  flex:0 0 auto!important;
+  width:100%!important;
+  text-align:center!important;
+}
+#documentBody#documentBody:is([data-programming-entry="neo-installer-programming-new"], [data-programming-entry="ps462-installer-programming-new"])
+  .program-zone-type-table.dsc-unified-table thead th:first-child .dsc-table-column-filter-button {
+  margin:0 auto!important;
+}
