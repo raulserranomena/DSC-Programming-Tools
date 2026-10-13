@@ -1,0 +1,134 @@
+#view-zone-expanders-tools .ze-top{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin:1px 0 11px}
+#view-zone-expanders-tools .ze-version-switch{display:inline-flex;flex-direction:row;flex-wrap:nowrap;align-items:stretch;width:max-content;max-width:100%;padding:3px;gap:3px;background:var(--panel2);border:1px solid var(--line);border-radius:9px}
+#view-zone-expanders-tools .ze-version-switch button{white-space:nowrap;border:0;border-radius:7px;padding:8px 14px;font-size:11px;font-weight:800;background:transparent;color:var(--muted)}
+#view-zone-expanders-tools .ze-version-switch button.active{background:color-mix(in srgb,#2189d0 17%,var(--panel));box-shadow:inset 0 0 0 1px color-mix(in srgb,#2189d0 44%,var(--line));color:var(--text)}
+#view-zone-expanders-tools .ze-simple-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(285px,340px);align-items:start;gap:11px}
+#view-zone-expanders-tools .ze-main-list{min-width:0}
+#view-zone-expanders-tools .ze-intro{margin:0 0 10px;font-size:11.5px;color:var(--muted);line-height:1.45}
+#view-zone-expanders-tools .ze-intro strong{color:var(--text)}
+#view-zone-expanders-tools .ze-group-tables{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;align-items:start}
+#view-zone-expanders-tools .ze-table-card,#view-zone-expanders-tools .ze-live-panel{min-width:0;background:var(--panel);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+#view-zone-expanders-tools .ze-table-card-title{padding:11px 11px 9px;border-bottom:1px solid var(--line);min-height:62px}
+#view-zone-expanders-tools .ze-table-card-title h3{font-size:12.5px;color:var(--text);margin:0 0 3px}
+#view-zone-expanders-tools .ze-table-card-title p{font-size:10.5px;color:var(--muted);margin:0}
+#view-zone-expanders-tools .ze-table-a .ze-table-card-title{border-top:3px solid #2189d0;padding-top:8px}
+#view-zone-expanders-tools .ze-table-b .ze-table-card-title{border-top:3px solid #cd8b24;padding-top:8px}
+#view-zone-expanders-tools .ze-table-v2 .ze-table-card-title{border-top:3px solid #2189d0;padding-top:8px}
+#view-zone-expanders-tools .ze-table-scroll{overflow:auto}
+#view-zone-expanders-tools .ze-mapping-table{width:100%;border-collapse:collapse;text-align:left;font-size:11px;font-variant-numeric:tabular-nums}
+#view-zone-expanders-tools .ze-mapping-table th,#view-zone-expanders-tools .ze-mapping-table td{white-space:nowrap;padding:9px 10px;text-align:left;border-bottom:1px solid var(--line)}
+#view-zone-expanders-tools .ze-mapping-table th+th,#view-zone-expanders-tools .ze-mapping-table td+td{border-left:1px solid var(--line)}
+#view-zone-expanders-tools .ze-mapping-table thead th{font-weight:850;font-size:10px;color:var(--text);background:var(--panel2)}
+#view-zone-expanders-tools .ze-mapping-table tbody tr:last-child td{border-bottom:0}
+#view-zone-expanders-tools .ze-mapping-table tbody tr{cursor:pointer;transition:background .09s ease}
+#view-zone-expanders-tools .ze-mapping-table tbody tr:hover{background:color-mix(in srgb,#2189d0 8%,var(--panel))}
+#view-zone-expanders-tools .ze-mapping-table tbody tr.ze-row-active{background:color-mix(in srgb,#2189d0 13%,var(--panel))}
+#view-zone-expanders-tools .ze-table-b .ze-mapping-table tbody tr.ze-row-active{background:color-mix(in srgb,#cd8b24 12%,var(--panel))}
+#view-zone-expanders-tools .ze-mapping-table .ze-cell-state{font-family:ui-monospace,Consolas,monospace;font-weight:750}
+#view-zone-expanders-tools .ze-mapping-table .ze-state-off{color:var(--muted)}
+#view-zone-expanders-tools .ze-mapping-table .ze-cell-range{font-weight:650;color:var(--text)}
+#view-zone-expanders-tools .ze-selected-pill{display:inline-block;margin-left:6px;border-radius:5px;padding:2px 4px;background:color-mix(in srgb,#2189d0 18%,var(--panel));font-size:9px;font-weight:850}
+#view-zone-expanders-tools .ze-table-b .ze-selected-pill{background:color-mix(in srgb,#cd8b24 20%,var(--panel))}
+#view-zone-expanders-tools .ze-live-panel{position:sticky;top:12px;padding:12px;display:flex;flex-direction:column;gap:10px}
+#view-zone-expanders-tools .ze-live-header h3{margin:0 0 3px;font-size:13px;color:var(--text)}
+#view-zone-expanders-tools .ze-live-header p{margin:0;font-size:10.5px;color:var(--muted)}
+#view-zone-expanders-tools .ze-live-list{display:flex;flex-direction:column;gap:9px}
+#view-zone-expanders-tools .ze-live-group{border:1px solid var(--line);border-radius:8px;padding:10px;background:var(--panel2)}
+#view-zone-expanders-tools .ze-live-a{border-left:3px solid #2189d0}
+#view-zone-expanders-tools .ze-live-b{border-left:3px solid #cd8b24}
+#view-zone-expanders-tools .ze-live-top{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:5px;margin-bottom:8px}
+#view-zone-expanders-tools .ze-live-top strong{font-size:11px;color:var(--text)}
+#view-zone-expanders-tools .ze-live-top span{font-size:11px;font-weight:800;color:var(--text)}
+#view-zone-expanders-tools .ze-live-pins{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+#view-zone-expanders-tools .ze-live-pin{display:flex;align-items:center;justify-content:center;gap:7px;padding:7px 5px;background:var(--panel);border:1px solid var(--line);border-radius:7px}
+#view-zone-expanders-tools .ze-live-pin span{font-size:10px;font-weight:750;color:var(--muted)}
+#view-zone-expanders-tools .ze-live-pin strong{font-size:11px;font-weight:900;color:var(--text)}
+#view-zone-expanders-tools .ze-live-pin.on strong{color:#2189d0}
+#view-zone-expanders-tools .ze-live-pin.off strong{color:var(--muted)}
+#view-zone-expanders-tools .ze-unused{font-size:10.5px;color:var(--muted);margin:0;line-height:1.45}
+#view-zone-expanders-tools .ze-board-area{border:1px solid var(--line);border-radius:9px;padding:9px;background:var(--panel2)}
+#view-zone-expanders-tools .ze-board-title{display:flex;justify-content:space-between;gap:8px;align-items:center;margin-bottom:7px}
+#view-zone-expanders-tools .ze-board-title strong{font-size:11px;color:var(--text)}
+#view-zone-expanders-tools .ze-board-title span{font-size:10px;color:var(--muted)}
+#view-zone-expanders-tools .ze-board-image{position:relative;max-width:310px;margin:0 auto;border:1px solid #c6cbd1;border-radius:6px;overflow:hidden;background:#fff}
+#view-zone-expanders-tools .ze-board-image img{display:block;width:100%;height:auto;user-select:none}
+#view-zone-expanders-tools .ze-pin-outline{position:absolute;box-sizing:border-box;border-radius:3px;border:2px solid transparent;pointer-events:none}
+#view-zone-expanders-tools .ze-outline-a{border-color:#2189d0;background:rgba(33,137,208,.12)}
+#view-zone-expanders-tools .ze-outline-b{border-color:#cd8b24;background:rgba(205,139,36,.12)}
+#view-zone-expanders-tools .ze-pin-outline.ze-pin-off{border-style:dashed;background:transparent}
+/* Jumper locations measured from the user-supplied PCB diagrams for each version. */
+#view-zone-expanders-tools .ze-board-v1-j1{left:55.7%;top:8.1%;width:3.6%;height:16.1%}
+#view-zone-expanders-tools .ze-board-v1-j2{left:65.1%;top:8.1%;width:3.6%;height:16.1%}
+#view-zone-expanders-tools .ze-board-v1-j3{left:74.5%;top:8.1%;width:3.6%;height:16.1%}
+#view-zone-expanders-tools .ze-board-v1-j4{left:21.7%;top:29.5%;width:4.0%;height:15.6%}
+#view-zone-expanders-tools .ze-board-v1-j5{left:27.0%;top:29.5%;width:4.0%;height:15.6%}
+#view-zone-expanders-tools .ze-board-v1-j6{left:21.7%;top:8.1%;width:4.0%;height:16.1%}
+#view-zone-expanders-tools .ze-board-v2-j1{left:55.7%;top:8.1%;width:3.6%;height:16.1%}
+#view-zone-expanders-tools .ze-board-v2-j2{left:65.1%;top:8.1%;width:3.6%;height:16.1%}
+#view-zone-expanders-tools .ze-board-v2-j3{left:74.5%;top:8.1%;width:3.6%;height:16.1%}
+#view-zone-expanders-tools .ze-board-instruction{font-size:10px;line-height:1.5;color:var(--muted);margin:7px 0 0}
+#view-zone-expanders-tools .ze-bottom-note{margin:10px 0;color:var(--muted);font-size:10.5px;line-height:1.5}
+#view-zone-expanders-tools .ze-bottom-note strong{color:var(--text)}
+#view-zone-expanders-tools .ze-overlap{background:color-mix(in srgb,#c28626 12%,var(--panel));border:1px solid #c28626;padding:9px;border-radius:7px;font-size:10.5px;line-height:1.5;color:var(--text)}
+#view-zone-expanders-tools [data-ze-choose]:focus-visible,#view-zone-expanders-tools button:focus-visible{outline:2px solid #2189d0;outline-offset:2px}
+@media(max-width:1460px){#view-zone-expanders-tools .ze-group-tables{grid-template-columns:1fr}}
+@media(max-width:1000px){#view-zone-expanders-tools .ze-simple-layout{grid-template-columns:1fr}#view-zone-expanders-tools .ze-live-panel{position:static;max-width:440px}#view-zone-expanders-tools .ze-group-tables{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:720px){#view-zone-expanders-tools .ze-group-tables{grid-template-columns:1fr}#view-zone-expanders-tools .ze-mapping-table th,#view-zone-expanders-tools .ze-mapping-table td{padding:8px 7px}#view-zone-expanders-tools .ze-version-switch{width:100%}#view-zone-expanders-tools .ze-version-switch button{flex:1}}
+
+/* v819: one common table for both v1.0 jumper banks, exactly as in the reference. */
+#view-zone-expanders-tools .ze-table-v1 .ze-table-card-title{border-top:3px solid #2189d0;padding-top:8px}
+#view-zone-expanders-tools .ze-bank-picker{display:flex;gap:10px;align-items:center;flex-wrap:wrap;padding:9px 11px;border-bottom:1px solid var(--line)}
+#view-zone-expanders-tools .ze-bank-picker>span{color:var(--muted);font-size:10.5px;font-weight:750}
+#view-zone-expanders-tools .ze-bank-switch{display:flex;gap:5px;flex:1;flex-wrap:wrap}
+#view-zone-expanders-tools .ze-bank-switch button{display:flex;flex-direction:column;align-items:flex-start;gap:3px;border:1px solid var(--line);background:var(--panel2);border-radius:8px;padding:7px 10px;min-width:155px;flex:1;color:var(--text);text-align:left}
+#view-zone-expanders-tools .ze-bank-switch button strong{font-size:11px}
+#view-zone-expanders-tools .ze-bank-switch button small{font-size:10px;color:var(--muted)}
+#view-zone-expanders-tools .ze-bank-switch .ze-bank-a.active{background:color-mix(in srgb,#2189d0 14%,var(--panel));border-color:#2189d0}
+#view-zone-expanders-tools .ze-bank-switch .ze-bank-b.active{background:color-mix(in srgb,#cd8b24 13%,var(--panel));border-color:#cd8b24}
+#view-zone-expanders-tools .ze-v1-mapping th.ze-v1-jumper{width:16%;text-align:center}
+#view-zone-expanders-tools .ze-v1-mapping th.ze-v1-jumper span{display:block;font-size:11px;line-height:1.7}
+#view-zone-expanders-tools .ze-v1-mapping th.ze-v1-jumper span:first-child{border-bottom:1px solid var(--line)}
+#view-zone-expanders-tools .ze-v1-mapping .ze-cell-state{text-align:center}
+#view-zone-expanders-tools .ze-mapping-table tbody tr.ze-row-active-b{background:color-mix(in srgb,#cd8b24 13%,var(--panel))}
+#view-zone-expanders-tools .ze-selected-pill{font-size:10px;padding:2px 6px}
+#view-zone-expanders-tools .ze-selected-pill.ze-pill-a{background:color-mix(in srgb,#2189d0 18%,var(--panel));color:var(--text)}
+#view-zone-expanders-tools .ze-selected-pill.ze-pill-b{background:color-mix(in srgb,#cd8b24 20%,var(--panel));color:var(--text)}
+#view-zone-expanders-tools .ze-table-hint{padding:8px 11px;font-size:10.5px;line-height:1.45;color:var(--muted);border-top:1px solid var(--line)}
+#view-zone-expanders-tools .ze-table-hint strong{color:var(--text)}
+@media(max-width:650px){#view-zone-expanders-tools .ze-bank-picker{display:block}#view-zone-expanders-tools .ze-bank-picker>span{display:block;margin-bottom:5px}#view-zone-expanders-tools .ze-v1-mapping th.ze-v1-jumper{width:14%}}
+
+/* v820: direct row assignments without a group picker. */
+#view-zone-expanders-tools .ze-direct-note{padding:9px 11px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:7px 12px;border-bottom:1px solid var(--line);font-size:10.5px;color:var(--muted)}
+#view-zone-expanders-tools .ze-next-hint{white-space:nowrap;background:var(--panel2);border:1px solid var(--line);border-radius:6px;padding:4px 8px}
+#view-zone-expanders-tools .ze-next-hint strong{color:var(--text)}
+#view-zone-expanders-tools .ze-v1-mapping .ze-named-setting{display:flex;justify-content:center;align-items:center;gap:7px;white-space:nowrap}
+#view-zone-expanders-tools .ze-v1-mapping .ze-named-setting small{font-size:10px;color:var(--muted);font-weight:850}
+#view-zone-expanders-tools .ze-v1-mapping .ze-named-setting strong{font-size:11px}
+#view-zone-expanders-tools .ze-v1-mapping tbody tr.ze-row-active{box-shadow:inset 3px 0 0 #2189d0}
+#view-zone-expanders-tools .ze-v1-mapping tbody tr.ze-row-active-b{background:color-mix(in srgb,#cd8b24 15%,var(--panel));box-shadow:inset 3px 0 0 #cd8b24}
+#view-zone-expanders-tools .ze-no-pins{grid-column:1/-1;padding:5px 0;font-size:10.5px;color:var(--muted);text-align:center}
+#view-zone-expanders-tools .ze-table-v1 .ze-table-card-title{min-height:unset}
+#view-zone-expanders-tools .ze-v1-mapping .ze-cell-state{padding-top:7px;padding-bottom:7px}
+
+/* v821: fixed A/B rows — both selected and unselected rows always show the actual jumper names. */
+#view-zone-expanders-tools .ze-v1-mapping tbody tr[data-ze-bank="a"]:hover{background:color-mix(in srgb,#2189d0 9%,var(--panel))}
+#view-zone-expanders-tools .ze-v1-mapping tbody tr[data-ze-bank="b"]:hover{background:color-mix(in srgb,#cd8b24 9%,var(--panel))}
+#view-zone-expanders-tools .ze-v1-mapping tbody tr.ze-row-active-b{background:color-mix(in srgb,#cd8b24 15%,var(--panel));box-shadow:inset 3px 0 0 #cd8b24}
+#view-zone-expanders-tools .ze-v1-mapping .ze-named-setting{justify-content:flex-start}
+
+
+/* v825: PC5108 v2.0 typography parity with the existing v1.0 table.
+   v1.0 has 11px jumper values/labels and 10px zone-range cells (via the
+   shared table system). Keep the same dimensions in the v2.0 table even
+   after shared filtering styles enhance the table. */
+#view-zone-expanders-tools .ze-table-v2 .ze-mapping-table tbody td.ze-cell-state{font-size:11px!important}
+#view-zone-expanders-tools .ze-table-v2 .ze-mapping-table tbody td.ze-cell-range{font-size:10px!important}
+#view-zone-expanders-tools .ze-table-v2 .ze-mapping-table thead th:nth-child(-n+3),
+#view-zone-expanders-tools .ze-table-v2 .ze-mapping-table thead th:nth-child(-n+3) .dsc-table-heading-label{font-size:11px!important}
+#view-zone-expanders-tools .ze-table-v2 .ze-mapping-table thead th:last-child,
+#view-zone-expanders-tools .ze-table-v2 .ze-mapping-table thead th:last-child .dsc-table-heading-label{font-size:10px!important}
+
+/* v827: Display J1/J2/J3 beside each v2.0 ON/OFF value, mirroring v1.0. */
+#view-zone-expanders-tools .ze-table-v2 .ze-named-setting{display:flex;justify-content:flex-start;align-items:center;gap:7px;white-space:nowrap}
+#view-zone-expanders-tools .ze-table-v2 .ze-named-setting small{font-size:10px;color:var(--muted);font-weight:850}
+#view-zone-expanders-tools .ze-table-v2 .ze-named-setting strong{font-size:11px}

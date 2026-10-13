@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+
+<html data-theme="dark" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>DSC Programming &amp; Tools — NEO + New PowerSeries</title>
+<script>document.documentElement.classList.add('js','workspace-initializing');</script>
+<link href="./styles.css?v=835" rel="stylesheet"/>
+<link href="./powerseries-zone-expanders-tools.css?v=827" rel="stylesheet"/>
+<script defer="" src="./data/dsc-data.js?v=835"></script><script defer="" src="./data/neo-programming-sections-1.js?v=835"></script><script defer="" src="./data/neo-programming-sections-2.js?v=835"></script><script defer="" src="./data/neo-programming-relationships.js?v=835"></script>
+<script defer="" src="./simulator/neo-panel-simulator.js"></script>
+<script defer="" src="./data/neo-reference-data.js?v=574"></script>
+<script defer="" src="./data/powerseries-reference-data.js?v=574"></script>
+<script defer="" src="./data/neo-wireless-tools-data.js?v=802"></script>
+<script defer="" src="./app.js?v=835"></script>
+<script defer="" src="./powerseries-zone-expanders-tools.js?v=827"></script>
+<script defer="" src="./label-entry-generator.js?v=559"></script>
+<script defer="" src="./powerseries-label-entry-generator.js?v=559"></script>
+<script defer="" src="./panel-current-calculator.js?v=536"></script>
+<script defer="" src="./reporting-code-decoder.js?v=536"></script>
+<script defer="" src="./powerseries-reporting-code-decoder.js?v=554"></script>
+<script defer="" src="./icon-led-esn-tools.js?v=536"></script>
+<script defer="" src="./workspace-table-system.js?v=824"></script>
+</head>
+<body>
+<div class="shell">
+<aside class="sidebar">
+<div class="brand workspace-sidebar-toolbar">
+<button aria-label="Open DSC Programming &amp; Tools home" class="workspace-home-button" id="workspaceHomeButton" title="DSC Programming &amp; Tools home" type="button">
+<span class="brand-copy">
+<strong>DSC Programming &amp; Tools</strong>
+<span>Programming 1.51 / 4.62 and tools</span>
+</span>
+</button>
+<div aria-label="Workspace navigation controls" class="workspace-sidebar-actions">
+<button aria-label="Expand all navigation sections" class="ghost compact-tree-action" id="expandAllTree" title="Expand all" type="button"><span aria-hidden="true">＋</span></button>
+<button aria-label="Collapse all navigation sections" class="ghost compact-tree-action" id="collapseAllTree" title="Collapse all" type="button"><span aria-hidden="true">−</span></button>
+<button aria-label="Hide navigation menu" class="ghost compact-tree-action workspace-sidebar-hide-button" id="sidebarHideButton" title="Hide navigation" type="button"><span aria-hidden="true">⟨</span></button>
+<button aria-label="Toggle theme" class="ghost compact-theme-toggle" id="themeToggle" title="Toggle theme" type="button"><span aria-hidden="true">◐</span></button>
+</div>
+</div>
+<section aria-label="Workspace search" class="workspace-sidebar-global-search workspace-search-v602" id="workspaceSearchPanel">
+<div class="workspace-sidebar-search-head">
+<div><span>Workspace search</span><small>Search programming sections and tools</small></div>
+<div class="workspace-search-head-actions"><button aria-controls="workspaceSearchOptions" aria-expanded="false" aria-label="Workspace search options" class="ghost workspace-search-options-button" id="globalSearchOptionsButton" title="Search options" type="button"><span aria-hidden="true">⚙</span></button></div>
+</div>
+<div class="search workspace-sidebar-search-field" role="search">
+<span aria-hidden="true" class="workspace-sidebar-search-icon">⌕</span>
+<input aria-label="Search DSC Programming &amp; Tools" autocomplete="off" id="globalSearch" placeholder="Search workspace..." type="search"/>
+<button aria-label="Show workspace matches" class="ghost workspace-search-matches-button workspace-search-count-pill-v608" disabled="" id="workspaceSearchMatchesButton" title="Show matches" type="button"><strong id="workspaceSearchMatchesCount">0</strong></button>
+<span class="workspace-search-input-actions">
+<button aria-label="Clear workspace search" class="workspace-search-clear" disabled="" id="clearWorkspaceSearch" title="Clear search" type="button"><span aria-hidden="true">×</span></button>
+<button aria-label="Search workspace" class="workspace-search-submit" disabled="" id="submitWorkspaceSearch" title="Search" type="button"><span aria-hidden="true">↵</span></button>
+</span>
+</div>
+<div class="workspace-search-options-popover workspace-global-search-options" hidden="" id="workspaceSearchOptions">
+<div class="workspace-search-options-head"><div><strong>Workspace search options</strong><span>Controls how the left navigation finds and exposes results.</span></div><button aria-label="Close workspace search options" class="ghost workspace-search-options-close" data-workspace-search-options-close="" type="button">×</button></div>
+<div class="workspace-search-options-group"><span class="workspace-search-options-label">Search timing</span><div aria-label="Workspace search timing" class="workspace-search-option-segments workspace-search-timing-segments" role="group"><button aria-pressed="true" class="active" data-global-search-timing="live" type="button">Live</button><button aria-pressed="false" data-global-search-timing="enter" type="button">Press Enter</button></div></div>
+<div class="workspace-search-options-toggles">
+<button aria-pressed="true" class="workspace-search-option-toggle active" data-global-search-option="expand" type="button"><span>Expand matching sections</span><small>Open branches that contain results. Turn this off to keep the tree exactly as you left it.</small></button>
+<button aria-pressed="true" class="workspace-search-option-toggle active" data-global-search-option="results-only" type="button"><span>Results only</span><small>Hide navigation branches that do not contain a match.</small></button>
+<button aria-pressed="false" class="workspace-search-option-toggle" data-global-search-option="exact" type="button"><span>Exact phrase</span><small>Match the typed phrase in order instead of matching each word independently.</small></button>
+<button aria-pressed="true" class="workspace-search-option-toggle active" data-global-search-option="deep-programming" type="button"><span>Deep programming</span><small>Search the indexed programming database, including sections that are not currently rendered.</small></button>
+</div>
+</div>
+<div class="workspace-global-search-state"><span aria-live="polite" class="workspace-search-status" id="workspaceSearchStatus"></span></div>
+</section>
+<nav aria-label="Main navigation" class="nav-tree" id="leftTree">
+<div class="sidebar-note">Loading navigation...</div>
+</nav>
+<div class="sidebar-footer"></div>
+</aside>
+<div aria-label="Resize navigation panel" aria-orientation="vertical" aria-valuemax="1000" aria-valuemin="280" class="sidebar-resizer" id="sidebarResizer" role="separator" tabindex="0"></div>
+<main class="main">
+<header class="topbar workspace-command-bar">
+<nav aria-label="Workspace location and actions" class="workspace-right-navigation" id="workspaceRightNavigation">
+<div class="workspace-navigation-buttons">
+<button aria-label="Show navigation menu" class="secondary workspace-right-nav-button workspace-sidebar-show-button" hidden="" id="sidebarShowButton" title="Show navigation" type="button"><span aria-hidden="true">☰</span><span>Menu</span></button>
+<button class="secondary workspace-right-nav-button" data-workspace-right-nav="back" disabled="" title="Go back" type="button"><span aria-hidden="true">←</span><span>Back</span></button>
+<button class="secondary workspace-right-nav-button" data-workspace-right-nav="forward" disabled="" title="Go forward" type="button"><span aria-hidden="true">→</span><span>Next</span></button>
+<button class="secondary workspace-right-nav-button" data-workspace-right-nav="up" disabled="" title="Go up one level" type="button"><span aria-hidden="true">↑</span><span>Up</span></button>
+<button class="secondary workspace-right-nav-button" data-workspace-right-nav="home" title="DSC Programming &amp; Tools home" type="button"><span aria-hidden="true">⌂</span><span>Home</span></button>
+</div>
+<div aria-label="Current workspace path" class="workspace-breadcrumbs" id="workspaceBreadcrumbs"></div>
+<div aria-label="Search open section" class="workspace-section-search workspace-section-search-v602" id="workspaceSectionSearchPanel" role="search">
+<span class="workspace-section-search-label">Section search</span>
+<div class="workspace-section-search-field">
+<span aria-hidden="true">⌕</span>
+<input aria-label="Search the open section" autocomplete="off" id="sectionSearchInput" placeholder="Search this section..." type="search"/>
+<button aria-label="Show section matches" class="ghost workspace-section-search-matches-button workspace-search-count-pill-v608" disabled="" id="sectionSearchMatchesButton" title="Show matches" type="button"><strong id="sectionSearchMatchesCount">0</strong></button>
+<button aria-label="Previous section match" class="ghost workspace-section-search-step" disabled="" id="sectionSearchPrevious" title="Previous match" type="button">↑</button>
+<button aria-label="Next section match" class="ghost workspace-section-search-step" disabled="" id="sectionSearchNext" title="Next match" type="button">↓</button>
+<button aria-label="Clear section search" class="ghost workspace-section-search-clear" disabled="" id="clearSectionSearch" title="Clear section search" type="button">×</button>
+<button aria-controls="sectionSearchOptions" aria-expanded="false" aria-label="Section search options" class="ghost workspace-section-search-options-button" id="sectionSearchOptionsButton" title="Section search options" type="button"><span aria-hidden="true">⚙</span></button>
+</div>
+<span aria-live="polite" class="workspace-section-search-status" id="sectionSearchStatus"></span>
+<div class="workspace-search-options-popover workspace-section-search-options" hidden="" id="sectionSearchOptions"></div>
+</div>
+</nav>
+<div aria-live="polite" class="workspace-loading-status" id="workspaceLoadingStatus"></div>
+</header>
+<div aria-hidden="true" class="workspace-loading-progress" id="workspaceLoadingProgress"><span></span></div>
+<section class="view workspace-reference-view" id="view-reference">
+<div class="section-title row reference-title-row">
+<div><p class="eyebrow" id="referenceEyebrow">Useful Information</p><h1 id="referenceTitle">Reference</h1><p class="muted" id="referenceSubtitle"></p></div>
+<div class="view-header-controls" id="referenceHeaderControls"></div>
+</div>
+<article class="card reference-content-card" id="referenceBody"></article>
+</section><section aria-label="Workspace start" class="view active workspace-home" id="view-home">
+<div class="section-title row compact-view-heading workspace-home-heading">
+<div><p class="eyebrow">DSC Programming &amp; Tools</p><h1>Programming &amp; Tools</h1></div>
+<div class="view-header-controls" id="workspaceHomeControls"></div>
+</div>
+<article class="workspace-section-home-card" id="workspaceHomeBody"></article>
+</section>
+<section aria-label="Section overview" class="view workspace-section-overview" id="view-section-home">
+<div class="section-title row compact-view-heading workspace-section-overview-heading">
+<div><p class="eyebrow" id="sectionHomeEyebrow">DSC Programming &amp; Tools</p><h1 id="sectionHomeTitle">Section</h1></div>
+<div class="view-header-controls" id="sectionHomeControls"></div>
+</div>
+<article class="workspace-section-home-card" id="sectionHomeBody"></article>
+</section><section class="view" id="view-document">
+<div class="section-title row document-title-row">
+<div>
+<p class="eyebrow" id="documentEyebrow">Document</p>
+<h1 id="documentTitle">Select a programming version</h1>
+<p class="muted" id="documentSubtitle"></p>
+</div>
+<div class="toolbar document-toolbar">
+<button aria-label="Organize programming by categories" aria-pressed="false" class="secondary programming-view-toggle hidden" id="toggleProgrammingCategories" title="Organize by categories" type="button">Categories</button>
+<button aria-label="Expand all sections" class="secondary compact-icon-action" data-doc-action="expand" title="Expand all" type="button"><span aria-hidden="true">＋</span></button>
+<button aria-label="Collapse all sections" class="secondary compact-icon-action" data-doc-action="collapse" title="Collapse all" type="button"><span aria-hidden="true">−</span></button>
+<button aria-expanded="false" aria-label="Programming options" aria-pressed="false" class="secondary compact-icon-action programming-settings-button hidden" id="toggleProgrammingSettings" title="Options" type="button"><span aria-hidden="true">⚙</span></button>
+<span class="compact-section-count hidden" id="documentSectionCount"><strong>0</strong><span>sections</span></span>
+</div>
+</div>
+<div class="programming-settings-panel hidden" id="programmingSettingsPanel">
+<div class="programming-settings-head">
+<div><span>Options</span><strong>Installer Programming</strong></div>
+<button class="secondary compact-action-button" id="resetProgrammingSettings" type="button">Reset</button>
+</div>
+<div class="programming-settings-row">
+<span class="programming-settings-label">Display</span>
+<div class="programming-settings-display">
+<label class="reporting-filter-check programming-settings-check" for="toggleHideUnusedOptions">
+<input id="toggleHideUnusedOptions" type="checkbox"/>
+<span aria-hidden="true" class="reporting-filter-check-box"></span>
+<span class="reporting-filter-check-label">Hide unused options</span>
+</label>
+<span class="programming-settings-help">Also hides “For Future Use” options and sections, plus Not Used, Reserved, and blank placeholders.</span>
+</div>
+</div>
+<div class="programming-settings-row hidden" id="programmingCompactDefaultsSettings">
+<span class="programming-settings-label">Defaults</span>
+<div class="programming-settings-display">
+<div aria-label="Compact summary default values" class="programming-settings-default-toggles" role="group">
+<label class="reporting-filter-check programming-settings-check" for="toggleProgrammingShowStndDefaults">
+<input checked="" id="toggleProgrammingShowStndDefaults" type="checkbox"/>
+<span aria-hidden="true" class="reporting-filter-check-box"></span>
+<span class="reporting-filter-check-label">Show STND values</span>
+</label>
+<label class="reporting-filter-check programming-settings-check" for="toggleProgrammingShowCp01Defaults">
+<input checked="" id="toggleProgrammingShowCp01Defaults" type="checkbox"/>
+<span aria-hidden="true" class="reporting-filter-check-box"></span>
+<span class="reporting-filter-check-label">Show CP01 values</span>
+</label>
+</div>
+<span class="programming-settings-help">Controls the STND: and CP01: columns in the compact table shown when a section is opened. The i button keeps the complete field-information view.</span>
+</div>
+</div>
+<div class="programming-settings-row">
+<span class="programming-settings-label">Layout</span>
+<div class="programming-settings-layout" data-document-layout-menu="programming-document" id="programmingLayoutToggle">
+<span>Columns</span>
+<div aria-label="Number of programming columns" class="reporting-table-toggle-strip programming-column-toggle" role="group">
+<button aria-checked="false" data-document-layout-choice="1" role="menuitemradio" type="button">1</button>
+<button aria-checked="true" class="active" data-document-layout-choice="2" role="menuitemradio" type="button">2</button>
+<button aria-checked="false" data-document-layout-choice="3" role="menuitemradio" type="button">3</button>
+<button aria-checked="false" data-document-layout-choice="4" role="menuitemradio" type="button">4</button>
+</div>
+</div>
+</div>
+</div>
+<article class="card document-card" id="documentBody">
+<p class="muted">Nothing is open yet.</p>
+</article>
+</section>
+<section class="view workspace-current-calculator-view" id="view-current-calculator">
+<div class="section-title row compact-view-heading workspace-tool-heading current-calculator-heading">
+<div><p class="eyebrow">PowerSeries NEO · Tools</p><h1>Panel Current Calculator</h1></div>
+<div class="view-header-controls" id="panelCurrentCalculatorHeaderControls"></div>
+</div>
+<article class="panel-current-calculator-host" id="panelCurrentCalculator">
+<div class="workspace-empty-state"><strong>Loading current calculator…</strong></div>
+</article>
+</section>
+<section class="view workspace-label-generator-view" id="view-label-entry-generator">
+<div class="section-title row compact-view-heading workspace-tool-heading label-entry-generator-heading">
+<div><p class="eyebrow">PowerSeries NEO · Tools</p><h1>Label Entry Tools</h1></div>
+<div class="view-header-controls" id="labelEntryGeneratorHeaderControls"></div>
+</div>
+<article class="label-entry-generator-host" id="neoLabelEntryGenerator">
+<div class="workspace-empty-state"><strong>Loading label entry tools…</strong></div>
+</article>
+</section>
+<section class="view workspace-label-generator-view" id="view-powerseries-label-entry-generator">
+<div class="section-title row compact-view-heading workspace-tool-heading label-entry-generator-heading">
+<div><p class="eyebrow">New PowerSeries · Tools</p><h1>Label Entry Tools</h1></div>
+<div class="view-header-controls" id="powerSeriesLabelEntryGeneratorHeaderControls"></div>
+</div>
+<article class="label-entry-generator-host" id="powerSeriesLabelEntryGenerator">
+<div class="workspace-empty-state"><strong>Loading New PowerSeries label entry tools…</strong></div>
+</article>
+</section>
+<section class="view workspace-reporting-decoder-view" id="view-reporting-code-decoder">
+<div class="section-title row compact-view-heading workspace-tool-heading reporting-code-decoder-heading">
+<div><p class="eyebrow">PowerSeries NEO · Tools</p><h1>Reporting Codes Tool</h1></div>
+<div class="view-header-controls" id="reportingCodeDecoderHeaderControls"></div>
+</div>
+<article class="reporting-code-decoder-host" id="neoReportingCodeDecoder">
+<div class="workspace-empty-state"><strong>Loading reporting codes tool…</strong></div>
+</article>
+</section>
+<section class="view workspace-reporting-decoder-view" id="view-powerseries-reporting-code-decoder">
+<div class="section-title row compact-view-heading workspace-tool-heading reporting-code-decoder-heading">
+<div><p class="eyebrow">New PowerSeries · Tools</p><h1>Reporting Codes Tool</h1></div>
+<div class="view-header-controls" id="powerSeriesReportingCodeDecoderHeaderControls"></div>
+</div>
+<article class="reporting-code-decoder-host" id="powerSeriesReportingCodeDecoder">
+<div class="workspace-empty-state"><strong>Loading New PowerSeries reporting codes tool…</strong></div>
+</article>
+</section>
+<section class="view workspace-zone-expanders-view" id="view-zone-expanders-tools">
+<div class="section-title row compact-view-heading workspace-tool-heading">
+<div><p class="eyebrow">New PowerSeries · Tools</p><h1>Zone Expanders Tools</h1></div>
+<div class="view-header-controls" id="newPowerSeriesZoneExpandersHeaderControls"></div>
+</div>
+<article class="zone-expanders-tools-host" id="newPowerSeriesZoneExpandersTools">
+<div class="workspace-empty-state"><strong>Loading PC5108 Zone Expanders Tools…</strong></div>
+</article>
+</section>
+<section class="view workspace-icon-led-esn-view" id="view-icon-led-esn-tools">
+<div class="section-title row compact-view-heading workspace-tool-heading icon-led-esn-heading">
+<div><p class="eyebrow">New PowerSeries · Tools</p><h1>ICON / LED Keypad and ESN Tools</h1></div>
+<div class="view-header-controls" id="newPowerSeriesIconLedEsnHeaderControls"></div>
+</div>
+<article class="icon-led-esn-tools-host" id="newPowerSeriesIconLedEsnTools">
+<div class="workspace-empty-state"><strong>Loading ICON / LED Keypad and ESN Tools…</strong></div>
+</article>
+</section>
+</main>
+</div>
+<div class="toast" id="toast"></div>
+<div aria-labelledby="workspaceSearchMatchesTitle" aria-modal="false" class="workspace-search-matches-dialog" hidden="" id="workspaceSearchMatchesDialog" role="dialog">
+<button aria-label="Close matches" class="workspace-search-matches-backdrop" data-search-matches-close="" type="button"></button>
+<section class="workspace-search-matches-window">
+<header class="workspace-search-matches-head">
+<div><p class="eyebrow" id="workspaceSearchMatchesEyebrow">Search matches</p><h2 id="workspaceSearchMatchesTitle">Matches</h2><p class="muted" id="workspaceSearchMatchesSummary"></p></div>
+<button aria-label="Close matches" class="ghost workspace-search-matches-close" data-search-matches-close="" type="button">×</button>
+</header>
+<div class="workspace-search-matches-list" id="workspaceSearchMatchesList"></div>
+</section>
+</div>
+<noscript>
+<div style="padding:20px;font-family:Arial,sans-serif">
+      This app needs JavaScript enabled.
+    </div>
+</noscript>
+</body>
+</html>
